@@ -1,19 +1,31 @@
-#include <stdio.h>
+#include <iostream>
+#include <string>
 
-int main()
+int main(int argc, char* argv[])
 {
-    int number;
-
-    printf("Enter a number: ");
-    scanf("%d", &number);
-
-    if (number % 2 == 0)
+    if (argc != 2)
     {
-        printf("%d is an Even number.\n", number);
+        std::cerr << "Usage: odd_even <number>" << std::endl;
+        return 1;
     }
-    else
+
+    try
     {
-        printf("%d is an Odd number.\n", number);
+        int number = std::stoi(argv[1]);
+
+        if (number % 2 == 0)
+        {
+            std::cout << number << " is an even number." << std::endl;
+        }
+        else
+        {
+            std::cout << number << " is an odd number." << std::endl;
+        }
+    }
+    catch (const std::exception&)
+    {
+        std::cerr << "Please provide a valid integer." << std::endl;
+        return 1;
     }
 
     return 0;
