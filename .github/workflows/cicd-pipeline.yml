@@ -1,0 +1,26 @@
+name: CICD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on:
+      - self-hosted
+      - linux
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: verify Runner
+        run:
+            hostname
+            whoami
+            pwd
+
+      - name: Build project
+        run: npm run build
+
+      
