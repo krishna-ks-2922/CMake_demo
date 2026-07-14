@@ -19,6 +19,7 @@ jobs:
       - name: Verify Runner
         run: |
           echo "Runner OS: $RUNNER_OS"
+          hostname
           pwd
           whoami
 
