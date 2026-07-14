@@ -1,13 +1,11 @@
-name: Run .NET Application
+name: NET Application
 
 on:
   push:
     branches:
-      - main
       - master
   pull_request:
     branches:
-      - main
       - master
 
 jobs:
@@ -15,6 +13,9 @@ jobs:
     runs-on:
       - self-hosted
       - linux
+
+    env:
+      DOTNET_INSTALL_DIR: ${{ runner.temp }}/dotnet
 
     steps:
       - name: Checkout Repository
