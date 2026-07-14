@@ -1,4 +1,4 @@
-name: NET Application
+name: Run .NET Application
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - linux
 
     env:
-      DOTNET_INSTALL_DIR: ${{ runner.temp }}/dotnet
+        DOTNET_INSTALL_DIR: ${{ runner.temp }}/dotnet
 
     steps:
       - name: Checkout Repository
